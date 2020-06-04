@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test YouCode</title>
+    <link rel="stylesheet" href="Starter-file/dist/css/style.css">
+    <script src="Starter-file/dist/js/script.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <nav class="header__nav">
+                <img src="images/logo.png" alt="" class="header__nav__logo">
+                <ul class="header__nav__menu">
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Programme</a></li>
+                    <li><a class="inscris" href="#">Inscris-toi</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="test">
+            <h1>Test en ligne</h1>
+            <h3>Test psychotechnique</h3>
+            <p>Les tests psychotechniques comprennent : des tests logique, des tests de dominos, des tests de cartes,
+                des tests mécaniques, des tests verbaux, des tests mathématiques et des tests de mémoire.</p>
+            <div class="test__button">
+                <button class="test__button__demarrer">Demarrer le Test</button>
+            </div>
+            
+        </section>
+        <section class="questions">
+            <h3>Test psychotechnique</h3>
+            <div class="questions__progress">
+                <div class="questions__progress__bar">
+                    <div class="questions__progress__bar__fill"></div>
+                </div>
+                <span class="questions__progress__count"></span>
+            </div>
+            <div class="questions__field">
+                <p class="questions__field__text"></p>
+                <img class="questions__field__img" src="images/meca-1.png" alt="">
+                <div class="questions__field__area">
+                    <form class="questions__field__area__form">
+                        <label for="oui">Oui</label>
+                        <input type="radio" value="oui" onclick="check()" id="oui" name="choice"><br>
+                        <label for="non">Non</label>
+                        <input type="radio" id="non" value="non" name="choice" onclick="check()"><br>
+                        <label for="sais-pas">sais-pas</label>
+                        <input type="radio" id="sais-pas" value="sais-pas" name="choice" onclick="check()"><br>
+                    </form>
+                    <div class="questions__field__area__timer">
+                        <img class="questions__field__area__timer__img" src="images/time.png" alt="">
+                        <span class="questions__field__area__timer__counter"></span>
+                    </div>
+                </div>
+                <div class="questions__field__buttons">
+                    <button value="1" class="questions__field__buttons__num">1</button>
+                    <button value="2" class="questions__field__buttons__num">2</button>
+                    <button value="3" class="questions__field__buttons__num">3</button>
+                    <button value="4" class="questions__field__buttons__num">4</button>
+                    <button value="5" class="questions__field__buttons__num">5</button>
+                </div>
+                <div class="score"></div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

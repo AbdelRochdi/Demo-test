@@ -1,0 +1,29 @@
+.header{
+    background: url(../../../images/test.png) no-repeat ;
+    background-size: cover;
+    height: 30em;
+
+    &__nav{
+        display: flex;
+        justify-content: space-between;
+        background-color: black;
+        opacity: 80%;
+        padding: 1em;
+        &__menu{
+            display: flex;
+            list-style-type: none;
+            li{
+                padding: 0 1.5em;
+                a{
+                    text-decoration: none;
+                    color: white;
+                }
+            }
+            .inscris{
+                background-color: blue;
+                padding: 0.8em;
+                border-radius: 1em;
+            }
+        }
+    }
+}

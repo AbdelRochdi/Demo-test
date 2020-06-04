@@ -1,0 +1,36 @@
+@import "includes.scss";
+.questions{
+    padding: 1em 3em;
+    &__field{
+        &__area{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &__timer{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                &__img{
+                    width: 40%;
+                }
+                &__counter{
+                    background-color: aqua;
+                    border-radius: 50%;
+                    padding: 0.5em;
+                    color: white;
+                    font-weight: bold;
+                }
+            }
+        }
+        &__buttons{
+            text-align: center;
+            margin: 5em 0;
+            button{
+                margin: 0 1em;
+                @include btn;
+                background-color: aqua;
+            }
+           
+        }
+    }
+}
