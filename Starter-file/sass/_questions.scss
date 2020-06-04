@@ -1,6 +1,7 @@
 @import "includes.scss";
 .questions{
     padding: 1em 3em;
+    display: none;
     &__field{
         &__area{
             display: flex;
@@ -32,5 +33,16 @@
             }
            
         }
+        &__validation{
+            text-align: center;
+            &__button{
+                @include btn;
+            }
+        }
     }
+}
+
+.score{
+    display: none;
+    text-align: center;
 }
