@@ -2,6 +2,23 @@
 .questions{
     padding: 1em 3em;
     display: none;
+    &__progress{
+        display: flex;
+        justify-content: center;
+        &__bar{
+            width: 60%;
+            border: 1px solid black;
+            border-radius: 1em;
+            margin-right: 1em;
+            &__fill{
+                border-radius: 1em;
+                background-color: blue;
+                width: 10%;
+                height: 100%;
+            }
+        }
+        
+    }
     &__field{
         &__area{
             display: flex;
@@ -23,16 +40,16 @@
                 }
             }
         }
-        &__buttons{
-            text-align: center;
-            margin: 5em 0;
-            button{
-                margin: 0 1em;
-                @include btn;
-                background-color: aqua;
-            }
+        // &__buttons{
+        //     text-align: center;
+        //     margin: 5em 0;
+        //     button{
+        //         margin: 0 1em;
+        //         @include btn;
+        //         background-color: aqua;
+        //     }
            
-        }
+        // }
         &__validation{
             text-align: center;
             &__button{

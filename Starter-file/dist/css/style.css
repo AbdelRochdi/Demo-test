@@ -60,6 +60,19 @@
 .questions {
   padding: 1em 3em;
   display: none; }
+  .questions__progress {
+    display: flex;
+    justify-content: center; }
+    .questions__progress__bar {
+      width: 60%;
+      border: 1px solid black;
+      border-radius: 1em;
+      margin-right: 1em; }
+      .questions__progress__bar__fill {
+        border-radius: 1em;
+        background-color: blue;
+        width: 10%;
+        height: 100%; }
   .questions__field__area {
     display: flex;
     justify-content: space-between;
@@ -76,16 +89,6 @@
         padding: 0.5em;
         color: white;
         font-weight: bold; }
-  .questions__field__buttons {
-    text-align: center;
-    margin: 5em 0; }
-    .questions__field__buttons button {
-      margin: 0 1em;
-      padding: 1em;
-      border-radius: 1em;
-      background-color: blue;
-      color: white;
-      background-color: aqua; }
   .questions__field__validation {
     text-align: center; }
     .questions__field__validation__button {
