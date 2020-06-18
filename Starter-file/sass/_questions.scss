@@ -5,21 +5,33 @@
     &__progress{
         display: flex;
         justify-content: center;
+        align-items: center;
         &__bar{
             width: 60%;
-            border: 1px solid black;
+            height: 1.3em;
+            border: 2px solid $primary;
             border-radius: 1em;
             margin-right: 1em;
             &__fill{
                 border-radius: 1em;
-                background-color: blue;
+                background-color: $primary;
                 width: 10%;
                 height: 100%;
             }
         }
-        
+    &__count{
+        font-weight: 700;
+        font-size: 1.5em;
+        color: $primary;
+    } 
     }
     &__field{
+        &__text{
+            text-align: center;
+            font-size: 1.5em;
+            width: 100%;
+            font-weight: 600;
+        }
         &__area{
             display: flex;
             justify-content: space-between;
@@ -32,9 +44,13 @@
                     width: 40%;
                 }
                 &__counter{
-                    background-color: aqua;
+                    background-color: rgb(21, 189, 21);
                     border-radius: 50%;
-                    padding: 0.5em;
+                    width: 2.5em;
+                    height: 2.5em;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     color: white;
                     font-weight: bold;
                 }
@@ -56,6 +72,18 @@
                 @include btn;
             }
         }
+    }
+}
+
+.quesContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.next{
+    text-align: center;
+    &__button{
+        @include btn;
     }
 }
 
