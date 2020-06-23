@@ -1,5 +1,10 @@
 @import "includes.scss";
+
 .questions{
+    h2{
+        text-align: center;
+        color: $primary;
+    }
     padding: 1em 3em;
     display: none;
     &__progress{
@@ -8,7 +13,8 @@
         align-items: center;
         &__bar{
             width: 60%;
-            height: 1.3em;
+            min-width: 280px;
+            height: 1.2em;
             border: 2px solid $primary;
             border-radius: 1em;
             margin-right: 1em;
@@ -26,83 +32,56 @@
     } 
     }
     &__field{
-        &__img{
-            width: 50%;
-            max-width: 500px;
-            height: 12em;
-            margin: 0 5em;
-        }
-        &__text{
-            text-align: center;
-            font-size: 1.5em;
-            width: 100%;
-            font-weight: 600;
-        }
-        &__area{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            &__form{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                margin: 1em auto;
-                label{
-                    margin-right: 1em;
-                    font-weight: 700;
-                    font-size: 1.2em;
-                }
-                input{
-                    margin-right: 3em;
-                    cursor: pointer;
-                }
+        &__container{
+            &__text{
+                font-weight: 600;
+                font-size: 1.3em;
+                text-align: center;
             }
-            &__timer{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                &__img{
-                    width: 40%;
+       }
+      
+       &__img{
+           width: 100%;
+           text-align: center;
+           display: flex;
+           justify-content: flex-end;
+           align-items: center;
+           img{
+               width: 35%;
+               min-width: 350px;
+               height: 11em;
+               padding: 0.5em 2em;
+               border: 8px solid $primary;
+               box-shadow: -2px 5px 8px black;
+               @include mini-mobile{
+                min-width: 250px;
                 }
-                &__counter{
-                    background-color: rgb(21, 189, 21);
-                    border-radius: 50%;
-                    width: 2.5em;
-                    height: 2.5em;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: white;
-                    font-weight: bold;
-                }
-            }
-        }
-        // &__buttons{
-        //     text-align: center;
-        //     margin: 5em 0;
-        //     button{
-        //         margin: 0 1em;
-        //         @include btn;
-        //         background-color: aqua;
-        //     }
-           
-        // }
-        &__validation{
-            text-align: center;
-            &__button{
-                @include btn;
-            }
-        }
+           }
+       }
+
+       &__area{
+           width: 100%;
+           margin: 1em;
+           &__container{
+               width: 100%;
+               text-align: center;
+               &__row{
+                   display: flex;
+                   justify-content: space-evenly;
+                   margin-left: -2em;
+                   button{
+                       @include btn;
+                       width: 20%;
+                       min-width: 100px;
+                       border-radius: 1.5em;
+                   }
+               }
+           }
+       }
     }
 }
 
-.quesContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 4em 0;
-}
+
 
 .next{
     text-align: center;
@@ -114,4 +93,39 @@
 .score{
     display: none;
     text-align: center;
+}
+
+.timer{
+    height: 15em;
+    width: 28%;
+    transform: rotate(180deg);
+    margin-left: 1em;
+    @include tablet{
+        width: 18%;
+    }
+    @include mobile{
+        width: 8%;
+    }
+    @include mini-mobile{
+        width: 5%;
+    }
+    &__bar{
+        border: 1px solid $primary;
+        width: 7%;
+        min-width: 15px;
+        height: 100%;
+        margin: 0 auto;
+        border-radius: 1.5em;
+        &__fill{
+            background-color: $primary;
+            height: 100%;
+            border-radius: 1.5em;
+        }
+    }
+    &__counter{
+        transform: rotate(180deg);
+        display: block;
+        color: $primary;
+        font-weight: 600;
+    }
 }

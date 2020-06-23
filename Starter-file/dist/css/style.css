@@ -1,4 +1,5 @@
 .header {
+  display: none;
   background: url(../../../images/test.png) no-repeat;
   background-size: cover;
   height: 30em; }
@@ -22,6 +23,7 @@
         border-radius: 1em; }
 
 .header {
+  display: none;
   background: url(../../../images/test.png) no-repeat;
   background-size: cover;
   height: 30em; }
@@ -75,13 +77,17 @@
 .questions {
   padding: 1em 3em;
   display: none; }
+  .questions h2 {
+    text-align: center;
+    color: #008AFF; }
   .questions__progress {
     display: flex;
     justify-content: center;
     align-items: center; }
     .questions__progress__bar {
       width: 60%;
-      height: 1.3em;
+      min-width: 280px;
+      height: 1.2em;
       border: 2px solid #008AFF;
       border-radius: 1em;
       margin-right: 1em; }
@@ -94,73 +100,55 @@
       font-weight: 700;
       font-size: 1.5em;
       color: #008AFF; }
-  .questions__field__img {
-    width: 50%;
-    max-width: 500px;
-    height: 12em;
-    margin: 0 5em; }
-  .questions__field__text {
-    text-align: center;
-    font-size: 1.5em;
-    width: 100%;
-    font-weight: 600; }
-  .questions__field__area {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; }
-    .questions__field__area__form {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      margin: 1em auto; }
-      .questions__field__area__form label {
-        margin-right: 1em;
-        font-weight: 700;
-        font-size: 1.2em; }
-      .questions__field__area__form input {
-        margin-right: 3em;
-        cursor: pointer; }
-    .questions__field__area__timer {
-      display: flex;
-      flex-direction: column;
-      align-items: center; }
-      .questions__field__area__timer__img {
-        width: 40%; }
-      .questions__field__area__timer__counter {
-        background-color: #15bd15;
-        border-radius: 50%;
-        width: 2.5em;
-        height: 2.5em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-weight: bold; }
-  .questions__field__validation {
+  .questions__field__container__text {
+    font-weight: 600;
+    font-size: 1.3em;
     text-align: center; }
-    .questions__field__validation__button {
-      padding: 0.7em 1em;
-      margin: 1em;
-      border: none;
-      outline: none;
-      font-weight: 600;
-      font-size: 1em;
-      border-radius: 0.5em;
-      background-color: #008AFF;
-      color: white;
-      cursor: pointer;
-      box-shadow: -1px 1px 3px black; }
-      .questions__field__validation__button:hover {
-        background-color: #1f98ff; }
-      .questions__field__validation__button:active {
-        background-color: #006ecc; }
-
-.quesContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 4em 0; }
+  .questions__field__img {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; }
+    .questions__field__img img {
+      width: 35%;
+      min-width: 350px;
+      height: 11em;
+      padding: 0.5em 2em;
+      border: 8px solid #008AFF;
+      box-shadow: -2px 5px 8px black; }
+      @media (max-width: 520px) {
+        .questions__field__img img {
+          min-width: 250px; } }
+  .questions__field__area {
+    width: 100%;
+    margin: 1em; }
+    .questions__field__area__container {
+      width: 100%;
+      text-align: center; }
+      .questions__field__area__container__row {
+        display: flex;
+        justify-content: space-evenly;
+        margin-left: -2em; }
+        .questions__field__area__container__row button {
+          padding: 0.7em 1em;
+          margin: 1em;
+          border: none;
+          outline: none;
+          font-weight: 600;
+          font-size: 1em;
+          border-radius: 0.5em;
+          background-color: #008AFF;
+          color: white;
+          cursor: pointer;
+          box-shadow: -1px 1px 3px black;
+          width: 20%;
+          min-width: 100px;
+          border-radius: 1.5em; }
+          .questions__field__area__container__row button:hover {
+            background-color: #1f98ff; }
+          .questions__field__area__container__row button:active {
+            background-color: #006ecc; }
 
 .next {
   text-align: center; }
@@ -184,6 +172,37 @@
 .score {
   display: none;
   text-align: center; }
+
+.timer {
+  height: 15em;
+  width: 28%;
+  transform: rotate(180deg);
+  margin-left: 1em; }
+  @media (max-width: 750px) {
+    .timer {
+      width: 18%; } }
+  @media (max-width: 600px) {
+    .timer {
+      width: 8%; } }
+  @media (max-width: 520px) {
+    .timer {
+      width: 5%; } }
+  .timer__bar {
+    border: 1px solid #008AFF;
+    width: 7%;
+    min-width: 15px;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 1.5em; }
+    .timer__bar__fill {
+      background-color: #008AFF;
+      height: 100%;
+      border-radius: 1.5em; }
+  .timer__counter {
+    transform: rotate(180deg);
+    display: block;
+    color: #008AFF;
+    font-weight: 600; }
 
 body {
   margin: 0;
