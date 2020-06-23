@@ -68,6 +68,10 @@
       .test__button__demarrer:active {
         background-color: #006ecc; }
 
+.arabic {
+  text-align: center;
+  margin: 2em 0; }
+
 .questions {
   padding: 1em 3em;
   display: none; }
@@ -90,6 +94,11 @@
       font-weight: 700;
       font-size: 1.5em;
       color: #008AFF; }
+  .questions__field__img {
+    width: 50%;
+    max-width: 500px;
+    height: 12em;
+    margin: 0 5em; }
   .questions__field__text {
     text-align: center;
     font-size: 1.5em;
@@ -99,6 +108,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center; }
+    .questions__field__area__form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin: 1em auto; }
+      .questions__field__area__form label {
+        margin-right: 1em;
+        font-weight: 700;
+        font-size: 1.2em; }
+      .questions__field__area__form input {
+        margin-right: 3em;
+        cursor: pointer; }
     .questions__field__area__timer {
       display: flex;
       flex-direction: column;
@@ -136,7 +158,9 @@
 
 .quesContainer {
   display: flex;
-  justify-content: space-between; }
+  justify-content: center;
+  align-items: center;
+  margin: 4em 0; }
 
 .next {
   text-align: center; }

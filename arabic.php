@@ -24,10 +24,9 @@
         <section class="test">
             <h1>Test en ligne</h1>
             <h3>Test psychotechnique</h3>
-            <p>Les tests psychotechniques comprennent : des tests logique, des tests de dominos, des tests de cartes,
-                des tests mécaniques, des tests verbaux, des tests mathématiques et des tests de mémoire.</p>
+            <p class='arabic'>هاد الاختبار فيه أسئلة ديال المنطق، الحساب، الميكانيك، و الذاكرة</p>
             <div class="test__button">
-                <button class="test__button__demarrer">Demarrer le Test</button>
+                <button class="test__button__demarrer">نبدا الاختبار</button>
             </div>
             
         </section>
@@ -66,7 +65,7 @@
                 
             </div>
             <div class="next">
-                <button class="next__button">Changer la Question</button>
+                <button class="next__button">نبدل السؤال</button>
             </div>
         </section>
         <h1 class="score"></h1>
@@ -89,7 +88,7 @@
   
  // if br < 2 -- $min+=20;
  
- $sql = "SELECT * FROM questions1";
+ $sql = "SELECT * FROM questions";
   
  // Check if there are results
  if ($result = mysqli_query($con, $sql))
@@ -111,7 +110,7 @@
      $json=json_encode($resultArray);
      ?>
      <script>
-        let myObj = <?php echo $json; ?>;
+          myObj = <?php echo $json; ?>;
      console.log(myObj) ;
      </script>
   
@@ -147,66 +146,16 @@ const score = document.querySelector('.score');
 demarrer.addEventListener('click',testStart);
 next.addEventListener('click',render);
 
-//timers
-
 let quesSeconds = 30;
 let genSeconds = 1200;
 
 let questionTimer = quesSeconds;
 let generalTimer = genSeconds;
 
-//sets of questions
 
-let type1Level1 = [];
-let type1Level2 = [];
-let type1Level3 = [];
-let type2Level1 = [];
-let type2Level2 = [];
-let type2Level3 = [];
-let type3Level1 = [];
-let type3Level2 = [];
-let type3Level3 = [];
 
-function trierQuestions(params) {
-    for (question of myObj){
-    if (question.type == 1 && question.niveau == 1) {
-        type1Level1.push(question);
-    }else if (question.type == 1 && question.niveau == 2) {
-        type1Level2.push(question);
-    }else if (question.type == 1 && question.niveau == 3) {
-        type1Level3.push(question);
-    }else if (question.type == 2 && question.niveau == 1) {
-        type2Level1.push(question);
-    }else if (question.type == 2 && question.niveau == 2) {
-        type2Level2.push(question);
-    }else if (question.type == 2 && question.niveau == 3) {
-        type2Level3.push(question);
-    }else if (question.type == 3 && question.niveau == 1) {
-        type3Level1.push(question);
-    }else if (question.type == 3 && question.niveau == 2) {
-        type3Level2.push(question);
-    }else if (question.type == 3 && question.niveau == 3) {
-        type3Level3.push(question);
-    }
-}
 
-}
-trierQuestions();
-
-//conditions
-
-let questionPassed;
-
-let questionPassedT1L1 = [];
-let questionPassedT1L2 = [];
-let questionPassedT1L3 = [];
-let questionPassedT2L1 = [];
-let questionPassedT2L2 = [];
-let questionPassedT2L3 = [];
-let questionPassedT3L1 = [];
-let questionPassedT3L2 = [];
-let questionPassedT3L3 = [];
-
+let questionPassed = [];
 let reponses = [0];
 let brMeca = 0;
 let brLogi = 0;
@@ -215,14 +164,14 @@ let mr = 0;
 
 
 function testStart() {
-    if (confirm('Notez bien que les mauvaises reponses vont etre pénalisés, etes vous prets pour passer le test')) {
-    testDiv.style.display = 'none';
+    if (confirm(`ديرفبالك بلي الاجوبة الخاطئة غا يتنقصو ليك عليهم النقاط
+وا ش مستاعد تبدا الاختبار ؟ `)) {
+        testDiv.style.display = 'none';
 	questionDiv.style.display = 'block';
 	headerDiv.style.background = 'none';
 	headerDiv.style.height = '10em';
 	render();
 	generalTimer = genSeconds;
-    
     }
 	
 }
@@ -232,13 +181,12 @@ function testStart() {
 
 
 function check() {
-
 	for (i = 0; i < answer.length; i++) {
 		if (answer[i].checked) {
 			if (answer[i].value == currentQuestion.BonneR) {
                 reponses.push(currentQuestion.niveau*(Math.floor(questionTimer/5)+1));
                 console.log(questionPassed)
-                questionPassed.push(parseInt(currentSet.indexOf(currentQuestion)))
+                questionPassed.push(parseInt(currentQuestion.NumQ))
                 console.log(questionPassed)
 				if (generalTimer > 800) {
                     brLogi+=1;
@@ -256,7 +204,7 @@ function check() {
 				
 			}else{
 				// reponses.push(0);
-                reponses.push(-(currentQuestion.niveau/2));
+                reponses.push(-(currentQuestion.niveau*(Math.floor(questionTimer/5)+1))/2);
 				mr +=1;
 				console.log(`mr = ${mr}`)
 				render();
@@ -269,74 +217,65 @@ function check() {
 }
 
 function randomInt(min, max) {
-	return min + Math.floor((max - min) * Math.random());
+	return min + Math.ceil((max - min) * Math.random());
 }
 
 function render() {
-
+    
    
-	if (brLogi < 2 && generalTimer > 800) {
-        currentSet = type1Level1;
-        questionPassed = questionPassedT1L1;
+	if (brLogi < 3 && generalTimer > 800) {
+        rangeMin = 50;
+        rangeMax = 56;
         
-	}else if(brLogi >= 2 && generalTimer > 800){
-        currentSet = type1Level2;
-        questionPassed = questionPassedT1L2;
-  
-	}else if (brLogi >= 4 && generalTimer > 800) {
-        currentSet = type1Level3;
-        questionPassed = questionPassedT1L3;
-
-	}else if(brMeca <2 && generalTimer > 400){
-        currentSet = type2Level1;
-        questionPassed = questionPassedT2L1;
+	}else if(brLogi >= 3 && generalTimer > 800){
+        rangeMin = 56;
+        rangeMax = 62;
         
-	}else if (brMeca >= 2 && generalTimer > 400) {
-        currentSet = type2Level2;
-        questionPassed = questionPassedT2L2;
-
-	}else if(brMeca >=4 && generalTimer > 400){
-        currentSet = type2Level3;
-        questionPassed = questionPassedT2L3;
-
-    }else if (brMath < 2 && generalTimer >0) {
-        currentSet = type3Level1;
-        questionPassed = questionPassedT3L1;
-     
-	}else if(brMath >=2 && generalTimer > 0){
-        currentSet = type3Level2;
-        questionPassed = questionPassedT3L2;
-
-    }else if(brMath >=4 && generalTimer > 0){
-        currentSet = type3Level3;
-        questionPassed = questionPassedT3L3;
+	}else if (brLogi >= 6 && generalTimer > 800) {
+        rangeMin = 62;
+        rangeMax = 70;
         
+	}else if(brMeca <3 && generalTimer > 400){
+        rangeMin = 14;
+        rangeMax = 21;
+        
+	}else if (brMeca >= 3 && generalTimer > 400) {
+        rangeMin = 21;
+        rangeMax = 28;
+        
+	}else if(brMeca >=6 && generalTimer > 400){
+        rangeMin = 28;
+        rangeMax = 40;
+   }else if (brMath < 3 && generalTimer >0) {
+        rangeMin = 100;
+        rangeMax = 107;
+        
+	}else if(brMath >=3 && generalTimer > 0){
+        rangeMin = 107;
+        rangeMax = 114;
+    }else if(brMath >=6 && generalTimer > 0){
+        rangeMin = 114;
+        rangeMax = 126;
     }
 
-    console.log('current set ='+currentSet);
 
-        let counter = randomInt(0,currentSet.length);
+
+        let counter = randomInt(rangeMin,rangeMax);
         console.log(counter)
     while (questionPassed.includes(counter)) {
-        counter = randomInt(0,currentSet.length);
+        counter = randomInt(rangeMin,rangeMax);
         console.log(counter)
     }
     console.log(questionPassed)
     console.log(`this is the last counter ${counter}`)
 
-	currentQuestion = currentSet[counter];
+	currentQuestion = myObj.find((result)=>{
+		return result.NumQ == counter;
+    })
     console.log(currentQuestion)
-	ques.textContent = currentQuestion.QuestF;
-	quesImage.setAttribute('src', `images/${currentQuestion.image}`);
-	form.innerHTML = `<label for="${currentQuestion.reponse1}">${currentQuestion.reponse1}</label>
-        <input type="radio" value="${currentQuestion.reponse1}" onclick="check()" id="${currentQuestion.reponse1}" name="choice"><br>
-        <label for="${currentQuestion.reponse2}">${currentQuestion.reponse2}</label>
-        <input type="radio" value="${currentQuestion.reponse2}" onclick="check()" id="${currentQuestion.reponse2}" name="choice"><br>
-        <label for="${currentQuestion.reponse3}">${currentQuestion.reponse3}</label>
-        <input type="radio" value="${currentQuestion.reponse3}" onclick="check()" id="${currentQuestion.reponse3}" name="choice"><br>
-        <label for="${currentQuestion.reponse4}">${currentQuestion.reponse4}</label>
-        <input type="radio" value="${currentQuestion.reponse4}" onclick="check()" id="${currentQuestion.reponse4}" name="choice"><br>
-        `;
+	ques.textContent = currentQuestion.QuestA;
+	quesImage.setAttribute('src', currentQuestion.image);
+	form.innerHTML = currentQuestion.choix;
 
 	questionTimer = quesSeconds; 
 }
@@ -404,7 +343,7 @@ function genTimer() {
 	progressBar.style.width = `${generalTimer/12}%`
 }
 
-setInterval(genTimer,100);
+setInterval(genTimer,1000);
 setInterval(quesTimer,1000);
 
 function showScore() {
