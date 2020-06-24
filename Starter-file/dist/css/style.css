@@ -174,9 +174,9 @@
     display: flex;
     justify-content: flex-end;
     align-items: center; }
-    @media (max-width: 400px) {
+    @media (max-width: 450px) {
       .questions__field__img {
-        margin-left: 2.5em; } }
+        margin-left: 0.5em; } }
     .questions__field__img img {
       width: 35%;
       min-width: 350px;
@@ -190,8 +190,12 @@
           margin-left: 10%; } }
       @media (max-width: 450px) {
         .questions__field__img img {
+          min-width: 230px;
+          margin-left: 20%; } }
+      @media (max-width: 400px) {
+        .questions__field__img img {
           min-width: 200px;
-          margin-left: 38%; } }
+          margin-left: 0%; } }
   .questions__field__area {
     width: 100%;
     margin: 1em; }
