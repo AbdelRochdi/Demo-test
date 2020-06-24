@@ -367,7 +367,7 @@ function render() {
 
 	currentQuestion = currentSet[counter];
     console.log(currentQuestion)
-	ques.textContent = currentQuestion.QuestF;
+	ques.textContent = currentQuestion.QuestA;
 	quesImage.setAttribute('src', `images/${currentQuestion.image}`);
 	answers.innerHTML = `<div class="questions__field__area__container__row">
                             <button value = '${currentQuestion.reponse1}' class='reponse'>${currentQuestion.reponse1}</button>

@@ -29,7 +29,23 @@
             <p>Les tests psychotechniques comprennent : des tests logique, des tests de dominos, des tests de cartes,
                 des tests mécaniques, des tests verbaux, des tests mathématiques et des tests de mémoire.</p>
             <div class="test__button">
-                <button class="test__button__demarrer">Demarrer le Test</button>
+                <button class="test__button__read">Les règles du test</button>
+            </div>
+
+            <div class="modal">
+                <div class="modal__content">
+                    <div class="modal__content__header">
+                        <span class="modal__content__header__closeBtn">&times;</span>
+                        <h2>Lisez Bien</h2>
+                    </div>
+                    <div class="modal__content__body">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore animi corrupti doloribus vero voluptatum cupiditate dolorum rerum. Doloribus, libero voluptas, quo deleniti voluptatem dolores a ex esse rerum repudiandae aperiam!
+                    </div>
+                    <div class="modal__content__button">
+                         <button class="modal__content__button__demarrer">Démarrer le test</button>
+                    </div>
+
+                </div>
             </div>
             
         </section>
@@ -143,7 +159,10 @@ const timer = document.querySelector('.timer__counter');
 const timerBar = document.querySelector('.timer__bar');
 const timerBarFill = document.querySelector('.timer__bar__fill');
 const quesImage = document.querySelector('.questions__field__img__picture');
-const demarrer = document.querySelector('.test__button__demarrer');
+const modal = document.querySelector('.modal');
+const openBtn = document.querySelector('.test__button__read');
+const closeBtn = document.querySelector('.modal__content__header__closeBtn');
+const demarrer = document.querySelector('.modal__content__button__demarrer');
 const answers = document.querySelector('.questions__field__area__container');
 const next = document.querySelector('.next__button');
 const score = document.querySelector('.score');
@@ -152,6 +171,9 @@ const score = document.querySelector('.score');
 demarrer.addEventListener('click',testStart);
 next.addEventListener('click',render);
 answers.addEventListener('click',check);
+closeBtn.addEventListener('click',closeModal);
+openBtn.addEventListener('click',openModal);
+window.addEventListener('click',outsideCloseModal);
 //timers
 
 let quesSeconds = 30;
@@ -219,8 +241,25 @@ let brMath = 0;
 let mr = 0;
 
 
+function openModal() {
+    modal.style.display = 'block';
+    
+}
+
+function closeModal() {
+    modal.style.display = 'none';
+}
+
+function outsideCloseModal(e) {
+    if (e.target == modal) {
+        modal.style.display = 'none';
+    }
+    
+}
+
+
 function testStart() {
-    if (confirm('Notez bien que les mauvaises reponses vont etre pénalisés, etes vous prets pour passer le test')) {
+    
     testDiv.style.display = 'none';
 	questionDiv.style.display = 'block';
 	headerDiv.style.background = 'none';
@@ -228,7 +267,6 @@ function testStart() {
 	render();
 	generalTimer = genSeconds;
     
-    }
 	
 }
 

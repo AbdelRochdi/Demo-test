@@ -53,7 +53,7 @@
     color: #008AFF; }
   .test__button {
     text-align: center; }
-    .test__button__demarrer {
+    .test__button__read {
       padding: 0.7em 1em;
       margin: 1em;
       border: none;
@@ -65,14 +65,77 @@
       color: white;
       cursor: pointer;
       box-shadow: -1px 1px 3px black; }
-      .test__button__demarrer:hover {
+      .test__button__read:hover {
         background-color: #1f98ff; }
-      .test__button__demarrer:active {
+      .test__button__read:active {
         background-color: #006ecc; }
 
 .arabic {
   text-align: center;
   margin: 2em 0; }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: modalOpen 0.8s; }
+  .modal__content {
+    background-color: white;
+    margin: 10% auto;
+    width: 60%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 0.8em; }
+    .modal__content__header {
+      background-color: #008AFF;
+      padding: 1.5em;
+      border-top-left-radius: 0.8em;
+      border-top-right-radius: 0.8em; }
+      .modal__content__header h2 {
+        margin: 0;
+        color: white;
+        text-align: center; }
+      .modal__content__header__closeBtn {
+        color: white;
+        float: right;
+        font-size: 30px; }
+        .modal__content__header__closeBtn:hover {
+          cursor: pointer;
+          color: black;
+          text-decoration: none; }
+    .modal__content__body {
+      padding: 1em 2em;
+      line-height: 1.5em; }
+    .modal__content__button {
+      text-align: center;
+      padding: 0 0 0.5em; }
+      .modal__content__button__demarrer {
+        padding: 0.7em 1em;
+        margin: 1em;
+        border: none;
+        outline: none;
+        font-weight: 600;
+        font-size: 1em;
+        border-radius: 0.5em;
+        background-color: #008AFF;
+        color: white;
+        cursor: pointer;
+        box-shadow: -1px 1px 3px black; }
+        .modal__content__button__demarrer:hover {
+          background-color: #1f98ff; }
+        .modal__content__button__demarrer:active {
+          background-color: #006ecc; }
+
+@keyframes modalOpen {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
 
 .questions {
   padding: 1em 3em;
