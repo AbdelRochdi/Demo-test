@@ -87,7 +87,7 @@
   animation: modalOpen 0.8s; }
   .modal__content {
     background-color: white;
-    margin: 10% auto;
+    margin: 12% auto;
     width: 90%;
     max-width: 800px;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
