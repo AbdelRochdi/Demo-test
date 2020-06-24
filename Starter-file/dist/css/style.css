@@ -124,7 +124,7 @@
         .questions__field__img img {
           min-width: 250px;
           margin-left: 10%; } }
-      @media (max-width: 430px) {
+      @media (max-width: 450px) {
         .questions__field__img img {
           min-width: 200px;
           margin-left: 40%; } }
