@@ -36,5 +36,15 @@
       @content;
     }
   }
+@mixin mini-mobile2 {
+    @media (max-width: 430px) {
+      @content;
+    }
+  }
+@mixin mini-mobile3 {
+    @media (max-width: 380px) {
+      @content;
+    }
+  }
 
 $primary : #008AFF;

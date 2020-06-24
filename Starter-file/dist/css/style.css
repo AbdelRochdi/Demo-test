@@ -110,6 +110,9 @@
     display: flex;
     justify-content: flex-end;
     align-items: center; }
+    @media (max-width: 380px) {
+      .questions__field__img {
+        margin-left: 2.5em; } }
     .questions__field__img img {
       width: 35%;
       min-width: 350px;
@@ -117,9 +120,17 @@
       padding: 0.5em 2em;
       border: 8px solid #008AFF;
       box-shadow: -2px 5px 8px black; }
+      @media (max-width: 600px) {
+        .questions__field__img img {
+          margin-left: 10%; } }
       @media (max-width: 520px) {
         .questions__field__img img {
-          min-width: 250px; } }
+          min-width: 250px;
+          margin-left: 10%; } }
+      @media (max-width: 430px) {
+        .questions__field__img img {
+          min-width: 200px;
+          margin-left: 40%; } }
   .questions__field__area {
     width: 100%;
     margin: 1em; }
