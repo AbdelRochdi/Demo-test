@@ -97,11 +97,6 @@
   
  // This SQL statement selects ALL from the table
  
- 
- 
-  
- // if br < 2 -- $min+=20;
- 
  $sql = "SELECT * FROM questions1";
   
  // Check if there are results
@@ -129,12 +124,9 @@
      </script>
   
      <?php
-     //var_dump($resultArray);
+     
  }
   
- 
- // Close connections
- //mysqli_close($result);
  mysqli_close($con);
  ?>
  
