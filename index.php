@@ -143,6 +143,8 @@
   
      <?php
      
+ }else {
+     die('query failed');
  }
   
  mysqli_close($con);
