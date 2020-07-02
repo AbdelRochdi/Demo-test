@@ -27,7 +27,7 @@
             <h1>Test en ligne</h1>
             <h3>Test psychotechnique</h3>
             <p>Les tests psychotechniques comprennent : des tests logique, des tests de dominos, des tests de cartes,
-                des tests mécaniques, des tests verbaux, des tests mathématiques et des tests de mémoire.</p>
+            des tests mécaniques, des tests verbaux, des tests mathématiques et des tests de mémoire.</p>
             <div class="test__button">
                 <button class="test__button__read">Les règles du test</button>
             </div>
@@ -41,7 +41,7 @@
                     <div class="modal__content__body">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore animi corrupti doloribus vero voluptatum cupiditate dolorum rerum. Doloribus, libero voluptas, quo deleniti voluptatem dolores a ex esse rerum repudiandae aperiam!
                     </div>
-                    <div class="modal__content__button">
+                    <div class="modal__content__button"> 
                          <button class="modal__content__button__demarrer">Démarrer le test</button>
                     </div>
 
@@ -367,8 +367,21 @@ function render() {
 
 	currentQuestion = currentSet[counter];
     console.log(currentQuestion)
-	ques.textContent = currentQuestion.QuestA;
-	quesImage.setAttribute('src', `images/${currentQuestion.image}`);
+    ques.textContent = currentQuestion.QuestA;
+    quesImage.setAttribute('src', `images/${currentQuestion.image}`);
+    if (currentQuestion.nombre_reponses == 5) {
+        answers.innerHTML = `<div class="questions__field__area__container__row">
+                            <button value = '${currentQuestion.reponse1}' class='reponse'>${currentQuestion.reponse1}</button>
+                            <button value = '${currentQuestion.reponse2}' class='reponse'>${currentQuestion.reponse2}</button>
+                        </div> 
+                        
+                        <div class="questions__field__area__container__row">
+                            <button value = '${currentQuestion.reponse3}' class='reponse'>${currentQuestion.reponse3}</button>
+                            <button value = '${currentQuestion.reponse4}' class='reponse'>${currentQuestion.reponse4}</button>
+                            <button value = '${currentQuestion.reponse5}' class='reponse'>${currentQuestion.reponse5}</button>
+                        </div>
+        `;
+    }else{
 	answers.innerHTML = `<div class="questions__field__area__container__row">
                             <button value = '${currentQuestion.reponse1}' class='reponse'>${currentQuestion.reponse1}</button>
                             <button value = '${currentQuestion.reponse2}' class='reponse'>${currentQuestion.reponse2}</button>
@@ -379,7 +392,7 @@ function render() {
                             <button value = '${currentQuestion.reponse4}' class='reponse'>${currentQuestion.reponse4}</button>
                         </div>
         `;
-
+    }
 	questionTimer = quesSeconds; 
 }
 

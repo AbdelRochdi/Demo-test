@@ -368,7 +368,20 @@ function render() {
 	currentQuestion = currentSet[counter];
     console.log(currentQuestion)
 	ques.textContent = currentQuestion.QuestF;
-	quesImage.setAttribute('src', `images/${currentQuestion.image}`);
+    quesImage.setAttribute('src', `images/${currentQuestion.image}`);
+    if (currentQuestion.nombre_reponses == 5) {
+        answers.innerHTML = `<div class="questions__field__area__container__row">
+                            <button value = '${currentQuestion.reponse1}' class='reponse'>${currentQuestion.reponse1}</button>
+                            <button value = '${currentQuestion.reponse2}' class='reponse'>${currentQuestion.reponse2}</button>
+                        </div> 
+                        
+                        <div class="questions__field__area__container__row">
+                            <button value = '${currentQuestion.reponse3}' class='reponse'>${currentQuestion.reponse3}</button>
+                            <button value = '${currentQuestion.reponse4}' class='reponse'>${currentQuestion.reponse4}</button>
+                            <button value = '${currentQuestion.reponse5}' class='reponse'>${currentQuestion.reponse5}</button>
+                        </div>
+        `;
+    }else{
 	answers.innerHTML = `<div class="questions__field__area__container__row">
                             <button value = '${currentQuestion.reponse1}' class='reponse'>${currentQuestion.reponse1}</button>
                             <button value = '${currentQuestion.reponse2}' class='reponse'>${currentQuestion.reponse2}</button>
@@ -379,7 +392,7 @@ function render() {
                             <button value = '${currentQuestion.reponse4}' class='reponse'>${currentQuestion.reponse4}</button>
                         </div>
         `;
-
+    }
 	questionTimer = quesSeconds; 
 }
 
