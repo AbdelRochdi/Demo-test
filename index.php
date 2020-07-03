@@ -115,7 +115,7 @@
   
  // This SQL statement selects ALL from the table
  
- $sql = "SELECT * FROM questions";
+ $sql = "SELECT * FROM questions1";
   
  // Check if there are results
  if ($result = mysqli_query($con, $sql))
